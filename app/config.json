@@ -1,0 +1,21 @@
+{
+  "name": "altaUsuarios",
+  "supportEmail": "mayra.delgado@metricamovil.com",
+  "version": "0.0.1",
+  "items": [{
+    
+    "url": "altaUsuarios.html",
+    "path": "",
+    "menuName": {
+      "en": "altaUsuarios"
+    },
+    
+    "icon": "images/icon.svg"
+  }],
+  "dev": {
+    "root": "altaUsuarios",
+    "dist": {
+      "host": "https://www.example.com/myaddin/"
+    }
+  }
+}

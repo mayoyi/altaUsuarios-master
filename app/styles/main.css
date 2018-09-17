@@ -1,0 +1,11 @@
+.hidden {
+    display: none;
+}
+
+.another-element {
+    @include float-right;
+}
+
+.one-more {
+    @include float-none;
+}

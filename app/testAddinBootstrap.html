@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>testAddinBootstrap</title>
+
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="./../bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="./../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <script src="./scripts/usuariosController.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="./../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+</head>
+
+<body>
+
+  <div id="altaUsuariosId" class="app bootstrap">
+    <div class="container-fluid theme-showcase" role="main">
+      <header class="geotabPageHeader">
+        <h1 class="geotabPageName">Alta Usuarios
+          <span class="subdued">(Beta)</span>
+        </h1>
+        <div class="pageNameSecondary">
+          <h3 class="geotabSecondaryTitle">by:
+            <span id="altaUsuarios-user"></span>
+          </h3>
+        </div>
+      </header>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1 class="panel-title">INFORMACIÓN DEL USUARIO</h1>
+        </div>
+      </div>
+      <!--inicio input usuario-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="userName" class="text-gray-dark">Usuario (correo electronico):</h5>
+          </div>
+          <div class="col-md-5 ">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon2">@</span>
+              <input type="email" class="form-control" name="nombre" required placeholder="Correo electronico" aria-describedby="sizing-addon2"
+                id="userName" minlength="3" maxlength="40">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--fin usuario-->
+      <!--inicio nombre-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="userFirstName" class="text-gray-dark">Nombre:</h5>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" type="text" placeholder="Nombre" required id="userFirstName">
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio apellido-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="userLastName" class="text-gray-dark">Apellido:</h5>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" type="text" placeholder="Apellido" required id="userLastName">
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio autenticacion
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="autenticacionUser-text-input" class="text-gray-dark">Tipo de Autenticación:</h5>
+          </div>
+          <div class="col-md-5">
+            <select class=" form-control">
+              <option value="BasicAuthentication"> Autenticacion Basica </option>
+              <option value="myAdmin">myAdmin (Global user)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      fin-->
+      <!--inicio contraseña-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="userPassword" class="text-gray-dark">Contraseña:</h5>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" type="password" placeholder="Contraseña" required id="userPassword">
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio confirmar contraseña-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="confirmacontraseñaUser" class="text-gray-dark">Confirmar contraseña:</h5>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" type="password" placeholder="Confirmar contraseña" required id="confirmacontraseñaUser">
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio nivel de seguridad-->
+      <div class="form-group" ng-controller="accesoDatosController">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="usercompanyGroup" class="text-gray-dark">Nivel de seguridad:</h5>
+          </div>
+          <div class="col-md-5">
+            <select class=" form-control" id="usercompanyGroup">
+              <option ng-repeat="seguridad  in lstnivelSeguridad">
+                {{seguridad.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio acceso a.. -->
+      <div class="form-group" ng-controller="accesoDatosController">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="accesoAUser-text-input" class="text-gray-dark">Acceso a los datos:</h5>
+          </div>
+          <div class="col-md-5">
+            <select class=" form-control">
+              <option ng-repeat="datos in lstGrupos">
+                {{datos.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio comentarios-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5 for="comentariosUser-text-input" class="text-gray-dark">Comentarios:</h5>
+          </div>
+          <div class="col-md-5">
+            <textarea class="form-control" type="text" placeholder="Comentarios" id="comentariosUser-text-input" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <!--fin-->
+      <!--inicio comentarios-->
+      <div class="form-group">
+        <div class="panel-body">
+          <div class="col-md-12">
+            <button type="button" id="addUser" class="btn btn-primary">
+              Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fin-->
+  </div>
+  <!-- /container -->
+</body>
+
+</html>
